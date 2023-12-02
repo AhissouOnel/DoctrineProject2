@@ -1,0 +1,13 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if data.previous %}
+            <li class="page-item"><a class="page-link" href="?page={{data.previous}}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{data.previous}}"> {{ data.previous }} </a></li>
+        {% endif %}
+        <li class="page-item active"><a class="page-link" href="#">{{ data.current }}</a></li>
+        {% if data.next %}
+            <li class="page-item"><a class="page-link" href="?page={{data.next}}">{{ data.next }}</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{data.next}}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,28 @@
+{
+    "name": "asus/orm-project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AhissouOnel",
+            "email": "onelahissou7@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "doctrine/orm": "*",
+        "doctrine/dbal": "*",
+        "doctrine/annotations": "*",
+        "symfony/cache": "*",
+        "fakerphp/faker": "^1.23",
+        "vlucas/phpdotenv": "^5.6",
+        "slim/slim": "^4.12",
+        "slim/psr7": "^1.6",
+        "slim/twig-view": "^3.3",
+        "cocur/slugify": "^4.5"
+    }
+}

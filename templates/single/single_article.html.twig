@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %} 
+
+{% block body %}
+<div class="single-article">
+    <div class="article-illustration" style="background-image: url('{{article.imageUrl}}');">
+        <h1>
+            {{article.title}}
+        </h1>
+    </div>
+   
+    <p class="article-author">Auteur: {{ article.author.fullName }}</p>
+    <p class="article-created_at">Créé le: {{ article.createdAt | date("d/m/Y H:i") }}</p>
+    <p class="article-categories">
+        Catégorie(s) : 
+        {%for category in article.categories %}
+            <a href="/article/by/category/{{category.slug}}">
+
+                <span class="badge text-bg-primary">{{category.name}}</span>
+            </a>
+        {%endfor%}
+    </p>
+    <p class="article-content">
+        {{
+            article.content
+        }}
+    </p>
+    <div class="article-comments" id="commentaire">
+      {% if article.comments %}
+      <h2>
+         Cet article a {{article.comments | length }} Commentaire(s)
+      </h2>
+
+      {%for comment in article.comments %}
+      <div class="single-comment">
+        <div class="comment-author">
+            <img src="{{  article.imageUrl }}" alt="">
+            <h4>
+
+                {{comment.author.fullName}}
+            </h4>
+        </div>
+        <div class="comment-content">
+            <p> Le {{comment.createdAt  | date("d/m/Y H:i") }}</p>
+            <p>
+                {{ comment.content }}
+            </p>
+        </div>
+      </div>
+      {%endfor%}
+      {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}

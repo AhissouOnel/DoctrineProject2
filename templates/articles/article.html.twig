@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+    {% if category %}
+        <h1>Articles de le catégorie : {{ category.name }}</h1>
+        <p>{{ articles | length }} articles retrouvés</p>
+    {% else %}
+        <h1>Tous nos articles</h1>
+        <p>{{ articleCount }} articles retrouvés</p>
+    {% endif %}
+
+    {{
+        include('pagination/pagination.html.twig', {data: data})
+    }}
+
+    <div class="row">
+        {% for article in data.articles %}
+        <div class="col">
+            {{
+                include('single_article/single_article.html.twig', {article: article})
+            }}
+        </div>
+        {% endfor %}
+    </div>
+    
+    {{
+        include('pagination/pagination.html.twig', {data: data})
+    }}
+{% endblock %} 

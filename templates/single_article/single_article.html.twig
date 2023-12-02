@@ -1,0 +1,12 @@
+<div class="article" style="">
+  <div class="article-image" style="background-image: url('article.imageUrl')"></div>
+    <img src="{{ article.imageUrl }}" class="article-img-top" alt="...">
+    <div class="article-body">
+      <h5 class="article-title">{{ article.title }}</h5>
+      <p class="article-text">{{ article.description }}</p>
+      <p class="article-author">Author : {{ article.author.fullName }}</p>
+      <p class="article-created_at">Created at : {{ article.createdAt | date("d/m/Y H:i") }}</p>
+      <a href="/single-article/{{ article.slug }}" class="btn btn-primary">{{ "En savoir plus" }}</a>
+      <p class="article-comment">{{ article.comments | length }} commentaires</p>
+    </div>
+</div>
